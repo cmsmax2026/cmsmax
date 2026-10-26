@@ -1,0 +1,143 @@
+{
+    "name": "默认主题",
+    "author": "梦小记",
+    "version": "1.0.8",
+    "description": "默认主题是一个面向前台模板与视觉输出的主题，默认主题模板，提供前台基础布局、菜单区域与通用页面模板示例，覆盖前台界面展示与模板布局、主题样式切换与页面风格统一 和 适配站点前台模板布局与视觉风格输出。",
+    "identification": "default",
+    "directory": "default",
+    "preview": "preview.jpg",
+    "cmslimit": "",
+    "pluginlimit": "",
+    "package_type": "theme",
+    "level": "extension",
+    "installable": true,
+    "disableable": true,
+    "uninstallable": true,
+    "deletable": true,
+    "parent": "",
+    "fallback": true,
+    "shorttags": true,
+    "settings": {
+        "schema": [
+            {
+                "key": "primary_color",
+                "label": "主题主色",
+                "type": "color",
+                "default": "#2563eb",
+                "group": "配色",
+                "description": "按钮、链接、强调文字的主色调"
+            },
+            {
+                "key": "accent_color",
+                "label": "强调色",
+                "type": "color",
+                "default": "#0f172a",
+                "group": "配色",
+                "description": "标题与深色区块使用"
+            },
+            {
+                "key": "page_background",
+                "label": "页面底色",
+                "type": "color",
+                "default": "#ffffff",
+                "group": "配色"
+            },
+            {
+                "key": "radius",
+                "label": "圆角",
+                "type": "size",
+                "default": "20px",
+                "group": "外观"
+            },
+            {
+                "key": "container_width",
+                "label": "内容宽度",
+                "type": "size",
+                "default": "1200px",
+                "group": "外观"
+            },
+            {
+                "key": "logo",
+                "label": "站点 Logo",
+                "type": "image",
+                "default": "",
+                "group": "头部",
+                "description": "留空则使用站点设置里的站点图标"
+            },
+            {
+                "key": "footer_text",
+                "label": "页脚文字",
+                "type": "text",
+                "default": "",
+                "group": "页脚",
+                "description": "显示在页脚版权信息上方"
+            },
+            {
+                "key": "list_layout",
+                "label": "列表布局",
+                "type": "select",
+                "default": "grid",
+                "group": "布局",
+                "options": {
+                    "grid": "网格卡片",
+                    "list": "纵向列表",
+                    "text": "纯文字列表"
+                }
+            }
+        ]
+    },
+    "hooks": [
+        "ThemeHead",
+        "ThemeFooter",
+        "ThemeRenderBefore",
+        "ThemeRenderAfter",
+        "ThemeData",
+        "ThemeShortTag",
+        "ThemeShortTagCatalog",
+        "ThemeSettingSchema",
+        "ThemeCssVariables",
+        "ThemeUpgradeFile",
+        "ThemeMenu"
+    ],
+    "protection": {
+        "mode": "none",
+        "encrypted_allowed": false,
+        "protected_paths": [
+            "assets/css/custom.css",
+            "public/custom/*",
+            "model/overwrite/",
+            "index/templates/",
+            "config.json"
+        ]
+    },
+    "compatibility": {
+        "cms": "*",
+        "php": "*",
+        "laravel": "*"
+    },
+    "dependencies": [],
+    "conflicts": [],
+    "data_policy": {
+        "on_disable": "keep",
+        "on_uninstall": "keep",
+        "on_delete": "manual"
+    },
+    "telemetry": {
+        "install": true,
+        "uninstall": true,
+        "enable": true,
+        "disable": true,
+        "upgrade": true,
+        "usage": true
+    },
+    "ui": {
+        "domain": "n",
+        "auth": "n",
+        "addmodel": "n",
+        "links": []
+    },
+    "legacy": {
+        "cmslimit": "",
+        "pluginlimit": ""
+    }
+}

@@ -1,0 +1,1 @@
+@include(moduleAdminTemplate($moduleName)."public.toTop")

@@ -1,0 +1,912 @@
+{
+    "_comment": "主题模板规范。由 FormTemplateCatalog 生成，新建主题或升级后请重新生成以保持一致。",
+    "override_convention": {
+        "list": "themes/<主题>/model/overwrite/list/<模板key>.blade.php",
+        "detail": "themes/<主题>/model/overwrite/detail/<模板key>.blade.php",
+        "form": "themes/<主题>/model/overwrite/form/<模板key>.blade.php",
+        "home_section": "themes/<主题>/index/templates/<模板key>.blade.php",
+        "builtin_fallback": "public/views/model/{list|detail|form}/<模板key>.blade.php（系统内置，随 CMS 升级，主题不要直接改；要改请放到上面 overwrite 目录）"
+    },
+    "scenes": {
+        "list": "列表页",
+        "detail": "详情页",
+        "home_section": "首页区块"
+    },
+    "field_aliases": {
+        "title_alias": [
+            "title",
+            "name"
+        ],
+        "subtitle_alias": [
+            "subtitle",
+            "sub_title",
+            "slogan"
+        ],
+        "summary_alias": [
+            "summary",
+            "describe",
+            "description",
+            "intro",
+            "remark"
+        ],
+        "content_alias": [
+            "content",
+            "body",
+            "detail"
+        ],
+        "cover_alias": [
+            "cover",
+            "image",
+            "thumb",
+            "pic",
+            "logo"
+        ],
+        "gallery_alias": [
+            "images",
+            "gallery",
+            "photos",
+            "albums"
+        ],
+        "video_alias": [
+            "video",
+            "video_url",
+            "media_url",
+            "video_src"
+        ],
+        "file_alias": [
+            "file",
+            "file_url",
+            "attachment",
+            "download",
+            "download_url"
+        ],
+        "date_alias": [
+            "date",
+            "publish_time",
+            "created_at",
+            "updated_at"
+        ],
+        "pid_alias": [
+            "pid",
+            "parent_id"
+        ],
+        "price_alias": [
+            "price",
+            "amount",
+            "money",
+            "sale_price",
+            "shop_price"
+        ],
+        "origin_price_alias": [
+            "origin_price",
+            "market_price",
+            "original_price",
+            "old_price"
+        ],
+        "stock_alias": [
+            "stock",
+            "inventory",
+            "quantity",
+            "stock_num"
+        ],
+        "spec_alias": [
+            "spec",
+            "specification",
+            "specs",
+            "sku",
+            "model"
+        ],
+        "tag_alias": [
+            "tag",
+            "tags",
+            "keyword",
+            "keywords",
+            "label"
+        ],
+        "position_alias": [
+            "position",
+            "job",
+            "job_title",
+            "duty",
+            "title_name"
+        ],
+        "phone_alias": [
+            "phone",
+            "tel",
+            "mobile"
+        ],
+        "email_alias": [
+            "email",
+            "mail"
+        ],
+        "address_alias": [
+            "address",
+            "company_address"
+        ],
+        "link_alias": [
+            "url",
+            "link",
+            "href"
+        ]
+    },
+    "templates": [
+        {
+            "scene": "list",
+            "template_key": "list",
+            "template_name": "通用列表",
+            "description": "适合文章、公告、资讯、内容列表。",
+            "required_fields": [
+                "title_alias"
+            ],
+            "recommended_fields": [
+                "summary_alias",
+                "date_alias",
+                "cover_alias"
+            ],
+            "supported_model_type": [
+                "multi"
+            ],
+            "sort": 10
+        },
+        {
+            "scene": "list",
+            "template_key": "cardGrid",
+            "template_name": "卡片网格",
+            "description": "适合案例、服务、产品、项目展示。",
+            "required_fields": [
+                "title_alias"
+            ],
+            "recommended_fields": [
+                "cover_alias",
+                "summary_alias"
+            ],
+            "supported_model_type": [
+                "multi"
+            ],
+            "sort": 20
+        },
+        {
+            "scene": "list",
+            "template_key": "titleContentImage",
+            "template_name": "图文列表",
+            "description": "适合带简介、封面和正文摘要的栏目。",
+            "required_fields": [
+                "title_alias"
+            ],
+            "recommended_fields": [
+                "cover_alias",
+                "content_alias"
+            ],
+            "supported_model_type": [
+                "multi"
+            ],
+            "sort": 30
+        },
+        {
+            "scene": "list",
+            "template_key": "titleImage",
+            "template_name": "标题配图",
+            "description": "适合轻图文栏目、单图专题和活动页。",
+            "required_fields": [
+                "title_alias"
+            ],
+            "recommended_fields": [
+                "cover_alias",
+                "summary_alias"
+            ],
+            "supported_model_type": [
+                "multi"
+            ],
+            "sort": 40
+        },
+        {
+            "scene": "list",
+            "template_key": "treeList",
+            "template_name": "树形目录",
+            "description": "适合文档树、分类目录、帮助中心。",
+            "required_fields": [
+                "title_alias"
+            ],
+            "recommended_fields": [
+                "pid_alias"
+            ],
+            "supported_model_type": [
+                "multi"
+            ],
+            "sort": 50
+        },
+        {
+            "scene": "list",
+            "template_key": "milestone",
+            "template_name": "发展历程",
+            "description": "适合时间线、历程、节点回顾。",
+            "required_fields": [
+                "title_alias"
+            ],
+            "recommended_fields": [
+                "date_alias",
+                "content_alias"
+            ],
+            "supported_model_type": [
+                "multi"
+            ],
+            "sort": 60
+        },
+        {
+            "scene": "list",
+            "template_key": "photoList",
+            "template_name": "相册模板",
+            "description": "适合作品集、图库、图片内容。",
+            "required_fields": [
+                "cover_alias"
+            ],
+            "recommended_fields": [
+                "title_alias",
+                "summary_alias"
+            ],
+            "supported_model_type": [
+                "multi"
+            ],
+            "sort": 70
+        },
+        {
+            "scene": "list",
+            "template_key": "videoList",
+            "template_name": "视频列表",
+            "description": "适合视频内容、课程视频、作品视频。",
+            "required_fields": [
+                "title_alias"
+            ],
+            "recommended_fields": [
+                "video_alias",
+                "cover_alias"
+            ],
+            "supported_model_type": [
+                "multi"
+            ],
+            "sort": 80
+        },
+        {
+            "scene": "list",
+            "template_key": "articleList",
+            "template_name": "资讯图文列表",
+            "description": "左封面右摘要的标准资讯列表，适合新闻、博客、公告。",
+            "required_fields": [
+                "title_alias"
+            ],
+            "recommended_fields": [
+                "cover_alias",
+                "summary_alias",
+                "date_alias"
+            ],
+            "supported_model_type": [
+                "multi"
+            ],
+            "sort": 90
+        },
+        {
+            "scene": "list",
+            "template_key": "productGrid",
+            "template_name": "商品网格",
+            "description": "封面 + 价格 + 库存 + 标签，适合商品、课程、服务报价。",
+            "required_fields": [
+                "title_alias"
+            ],
+            "recommended_fields": [
+                "cover_alias",
+                "price_alias",
+                "stock_alias",
+                "tag_alias"
+            ],
+            "supported_model_type": [
+                "multi"
+            ],
+            "sort": 100
+        },
+        {
+            "scene": "list",
+            "template_key": "productList",
+            "template_name": "商品列表",
+            "description": "左图右文的横向大卡，信息量比网格更大。",
+            "required_fields": [
+                "title_alias"
+            ],
+            "recommended_fields": [
+                "cover_alias",
+                "price_alias",
+                "summary_alias"
+            ],
+            "supported_model_type": [
+                "multi"
+            ],
+            "sort": 110
+        },
+        {
+            "scene": "list",
+            "template_key": "galleryGrid",
+            "template_name": "相册瀑布流",
+            "description": "CSS 多列瀑布 + 点击灯箱，适合作品集、图库、实景照片。",
+            "required_fields": [
+                "cover_alias"
+            ],
+            "recommended_fields": [
+                "gallery_alias",
+                "title_alias"
+            ],
+            "supported_model_type": [
+                "multi"
+            ],
+            "sort": 120
+        },
+        {
+            "scene": "list",
+            "template_key": "videoGrid",
+            "template_name": "视频网格",
+            "description": "封面带播放按钮，点击弹窗播放，支持 mp4 直链与主流平台。",
+            "required_fields": [
+                "title_alias"
+            ],
+            "recommended_fields": [
+                "video_alias",
+                "cover_alias"
+            ],
+            "supported_model_type": [
+                "multi"
+            ],
+            "sort": 130
+        },
+        {
+            "scene": "list",
+            "template_key": "downloadList",
+            "template_name": "下载列表",
+            "description": "文件类型图标 + 说明 + 下载按钮，适合资料、手册、软件包。",
+            "required_fields": [
+                "title_alias"
+            ],
+            "recommended_fields": [
+                "file_alias",
+                "summary_alias"
+            ],
+            "supported_model_type": [
+                "multi"
+            ],
+            "sort": 140
+        },
+        {
+            "scene": "list",
+            "template_key": "faqList",
+            "template_name": "问答折叠",
+            "description": "标题当问题、正文当答案，点击展开，适合 FAQ、帮助中心。",
+            "required_fields": [
+                "title_alias"
+            ],
+            "recommended_fields": [
+                "content_alias"
+            ],
+            "supported_model_type": [
+                "multi"
+            ],
+            "sort": 150
+        },
+        {
+            "scene": "list",
+            "template_key": "teamGrid",
+            "template_name": "团队成员",
+            "description": "头像 + 姓名 + 职位 + 简介 + 联系方式，适合团队、讲师、专家。",
+            "required_fields": [
+                "title_alias"
+            ],
+            "recommended_fields": [
+                "cover_alias",
+                "position_alias",
+                "summary_alias"
+            ],
+            "supported_model_type": [
+                "multi"
+            ],
+            "sort": 160
+        },
+        {
+            "scene": "list",
+            "template_key": "priceTable",
+            "template_name": "价格套餐",
+            "description": "并排对比卡片，支持推荐套餐高亮，适合定价、会员等级。",
+            "required_fields": [
+                "title_alias"
+            ],
+            "recommended_fields": [
+                "price_alias",
+                "origin_price_alias",
+                "spec_alias"
+            ],
+            "supported_model_type": [
+                "multi"
+            ],
+            "sort": 170
+        },
+        {
+            "scene": "detail",
+            "template_key": "detail",
+            "template_name": "通用详情",
+            "description": "适合文章、公告、正文详情页。",
+            "required_fields": [
+                "title_alias"
+            ],
+            "recommended_fields": [
+                "content_alias",
+                "date_alias",
+                "cover_alias"
+            ],
+            "supported_model_type": [
+                "single",
+                "multi"
+            ],
+            "sort": 10
+        },
+        {
+            "scene": "detail",
+            "template_key": "detailLeftList",
+            "template_name": "详情加左栏",
+            "description": "适合分类内容、目录型详情页。",
+            "required_fields": [
+                "title_alias"
+            ],
+            "recommended_fields": [
+                "content_alias",
+                "pid_alias"
+            ],
+            "supported_model_type": [
+                "single",
+                "multi"
+            ],
+            "sort": 20
+        },
+        {
+            "scene": "detail",
+            "template_key": "detailRightList",
+            "template_name": "详情加右栏",
+            "description": "适合正文加推荐内容的详情结构。",
+            "required_fields": [
+                "title_alias"
+            ],
+            "recommended_fields": [
+                "content_alias"
+            ],
+            "supported_model_type": [
+                "single",
+                "multi"
+            ],
+            "sort": 30
+        },
+        {
+            "scene": "detail",
+            "template_key": "detailBottomList",
+            "template_name": "详情加底栏",
+            "description": "适合正文后接推荐列表或扩展内容。",
+            "required_fields": [
+                "title_alias"
+            ],
+            "recommended_fields": [
+                "content_alias"
+            ],
+            "supported_model_type": [
+                "single",
+                "multi"
+            ],
+            "sort": 40
+        },
+        {
+            "scene": "detail",
+            "template_key": "productDetail",
+            "template_name": "商品详情",
+            "description": "左侧图集 + 右侧价格规格咨询，适合商品、课程、套餐详情。",
+            "required_fields": [
+                "title_alias"
+            ],
+            "recommended_fields": [
+                "cover_alias",
+                "gallery_alias",
+                "price_alias",
+                "content_alias"
+            ],
+            "supported_model_type": [
+                "single",
+                "multi"
+            ],
+            "sort": 50
+        },
+        {
+            "scene": "detail",
+            "template_key": "videoDetail",
+            "template_name": "视频详情",
+            "description": "顶部播放器 + 正文 + 相关推荐，适合视频、课程、直播回放。",
+            "required_fields": [
+                "title_alias"
+            ],
+            "recommended_fields": [
+                "video_alias",
+                "cover_alias",
+                "content_alias"
+            ],
+            "supported_model_type": [
+                "single",
+                "multi"
+            ],
+            "sort": 60
+        },
+        {
+            "scene": "detail",
+            "template_key": "galleryDetail",
+            "template_name": "相册详情",
+            "description": "整页图集 + 灯箱放大，适合作品集、实景图、活动照片。",
+            "required_fields": [
+                "title_alias"
+            ],
+            "recommended_fields": [
+                "gallery_alias",
+                "cover_alias"
+            ],
+            "supported_model_type": [
+                "single",
+                "multi"
+            ],
+            "sort": 70
+        },
+        {
+            "scene": "detail",
+            "template_key": "about",
+            "template_name": "关于我们",
+            "description": "单记录模型详情页，用于关于我们、公司介绍等单页内容。",
+            "required_fields": [
+                "title_alias"
+            ],
+            "recommended_fields": [
+                "content_alias",
+                "cover_alias",
+                "gallery_alias"
+            ],
+            "supported_model_type": [
+                "single",
+                "multi"
+            ],
+            "sort": 80
+        },
+        {
+            "scene": "detail",
+            "template_key": "onlydetail",
+            "template_name": "纯详情",
+            "description": "只渲染单条记录正文，不带列表与侧栏，适合纯内容页。",
+            "required_fields": [
+                "title_alias"
+            ],
+            "recommended_fields": [
+                "content_alias"
+            ],
+            "supported_model_type": [
+                "single",
+                "multi"
+            ],
+            "sort": 90
+        },
+        {
+            "scene": "detail",
+            "template_key": "carousel",
+            "template_name": "详情带轮播",
+            "description": "基于标题配图详情页，适合需要顶部轮播图的详情。",
+            "required_fields": [
+                "title_alias"
+            ],
+            "recommended_fields": [
+                "cover_alias",
+                "gallery_alias"
+            ],
+            "supported_model_type": [
+                "single",
+                "multi"
+            ],
+            "sort": 100
+        },
+        {
+            "scene": "detail",
+            "template_key": "contacts",
+            "template_name": "联系方式",
+            "description": "单记录模型的字段自动罗列，适合联系方式、公司信息展示。",
+            "required_fields": [
+                "title_alias"
+            ],
+            "recommended_fields": [
+                "phone_alias",
+                "email_alias",
+                "address_alias"
+            ],
+            "supported_model_type": [
+                "single",
+                "multi"
+            ],
+            "sort": 110
+        },
+        {
+            "scene": "home_section",
+            "template_key": "list",
+            "template_name": "首页列表区块",
+            "description": "适合首页内容列表、资讯区块、案例区块。",
+            "required_fields": [
+                "title_alias"
+            ],
+            "recommended_fields": [
+                "summary_alias",
+                "cover_alias"
+            ],
+            "supported_model_type": [
+                "single",
+                "multi"
+            ],
+            "sort": 10
+        },
+        {
+            "scene": "home_section",
+            "template_key": "titleContentImage",
+            "template_name": "首页图文区块",
+            "description": "适合带导语、图文卡片的首页内容模块。",
+            "required_fields": [
+                "title_alias"
+            ],
+            "recommended_fields": [
+                "cover_alias",
+                "content_alias"
+            ],
+            "supported_model_type": [
+                "single",
+                "multi"
+            ],
+            "sort": 20
+        },
+        {
+            "scene": "home_section",
+            "template_key": "titleImage",
+            "template_name": "首页标题配图区块",
+            "description": "适合品牌介绍、图片型专题区块。",
+            "required_fields": [
+                "title_alias"
+            ],
+            "recommended_fields": [
+                "cover_alias",
+                "summary_alias"
+            ],
+            "supported_model_type": [
+                "single",
+                "multi"
+            ],
+            "sort": 30
+        },
+        {
+            "scene": "home_section",
+            "template_key": "milestone",
+            "template_name": "首页历程区块",
+            "description": "适合发展历程、时间轴、成长节点。",
+            "required_fields": [
+                "title_alias"
+            ],
+            "recommended_fields": [
+                "date_alias",
+                "content_alias"
+            ],
+            "supported_model_type": [
+                "single",
+                "multi"
+            ],
+            "sort": 40
+        },
+        {
+            "scene": "home_section",
+            "template_key": "about",
+            "template_name": "首页关于我们区块",
+            "description": "适合公司简介、品牌故事、团队概况的单页内容。",
+            "required_fields": [
+                "title_alias"
+            ],
+            "recommended_fields": [
+                "cover_alias",
+                "content_alias",
+                "gallery_alias"
+            ],
+            "supported_model_type": [
+                "single",
+                "multi"
+            ],
+            "sort": 45
+        },
+        {
+            "scene": "home_section",
+            "template_key": "contacts",
+            "template_name": "首页联系区块",
+            "description": "适合联系人、联系方式、公司信息展示。",
+            "required_fields": [
+                "title_alias"
+            ],
+            "recommended_fields": [
+                "phone_alias",
+                "email_alias",
+                "address_alias"
+            ],
+            "supported_model_type": [
+                "single",
+                "multi"
+            ],
+            "sort": 50
+        },
+        {
+            "scene": "home_section",
+            "template_key": "feedback",
+            "template_name": "首页留言区块",
+            "description": "适合留言、反馈、互动入口。",
+            "required_fields": [
+                "title_alias"
+            ],
+            "recommended_fields": [
+                "content_alias"
+            ],
+            "supported_model_type": [
+                "single",
+                "multi"
+            ],
+            "sort": 60
+        },
+        {
+            "scene": "home_section",
+            "template_key": "articleList",
+            "template_name": "首页资讯区块",
+            "description": "左封面右摘要的资讯列表，适合首页新闻、博客、公告。",
+            "required_fields": [
+                "title_alias"
+            ],
+            "recommended_fields": [
+                "cover_alias",
+                "summary_alias",
+                "date_alias"
+            ],
+            "supported_model_type": [
+                "single",
+                "multi"
+            ],
+            "sort": 70
+        },
+        {
+            "scene": "home_section",
+            "template_key": "productGrid",
+            "template_name": "首页商品区块",
+            "description": "带价格与库存的商品卡片网格，适合首页推荐商品、热销课程。",
+            "required_fields": [
+                "title_alias"
+            ],
+            "recommended_fields": [
+                "cover_alias",
+                "price_alias"
+            ],
+            "supported_model_type": [
+                "single",
+                "multi"
+            ],
+            "sort": 80
+        },
+        {
+            "scene": "home_section",
+            "template_key": "galleryGrid",
+            "template_name": "首页相册区块",
+            "description": "瀑布流图集 + 灯箱，适合首页作品集、实景展示。",
+            "required_fields": [
+                "cover_alias"
+            ],
+            "recommended_fields": [
+                "gallery_alias",
+                "title_alias"
+            ],
+            "supported_model_type": [
+                "single",
+                "multi"
+            ],
+            "sort": 90
+        },
+        {
+            "scene": "home_section",
+            "template_key": "videoGrid",
+            "template_name": "首页视频区块",
+            "description": "点击弹窗播放的视频卡片网格，适合首页课程视频、宣传片。",
+            "required_fields": [
+                "title_alias"
+            ],
+            "recommended_fields": [
+                "video_alias",
+                "cover_alias"
+            ],
+            "supported_model_type": [
+                "single",
+                "multi"
+            ],
+            "sort": 100
+        },
+        {
+            "scene": "home_section",
+            "template_key": "teamGrid",
+            "template_name": "首页团队区块",
+            "description": "成员卡片网格，适合首页团队、讲师、专家介绍。",
+            "required_fields": [
+                "title_alias"
+            ],
+            "recommended_fields": [
+                "cover_alias",
+                "position_alias"
+            ],
+            "supported_model_type": [
+                "single",
+                "multi"
+            ],
+            "sort": 110
+        },
+        {
+            "scene": "home_section",
+            "template_key": "downloadList",
+            "template_name": "首页下载区块",
+            "description": "带下载按钮的资料列表，适合首页资料、手册、软件包。",
+            "required_fields": [
+                "title_alias"
+            ],
+            "recommended_fields": [
+                "file_alias",
+                "summary_alias"
+            ],
+            "supported_model_type": [
+                "single",
+                "multi"
+            ],
+            "sort": 120
+        },
+        {
+            "scene": "home_section",
+            "template_key": "faqList",
+            "template_name": "首页问答区块",
+            "description": "点击展开的问答折叠，适合首页常见问题、帮助入口。",
+            "required_fields": [
+                "title_alias"
+            ],
+            "recommended_fields": [
+                "content_alias"
+            ],
+            "supported_model_type": [
+                "single",
+                "multi"
+            ],
+            "sort": 130
+        },
+        {
+            "scene": "home_section",
+            "template_key": "priceTable",
+            "template_name": "首页价格区块",
+            "description": "并排价格套餐卡片，适合首页定价、会员等级展示。",
+            "required_fields": [
+                "title_alias"
+            ],
+            "recommended_fields": [
+                "price_alias",
+                "spec_alias"
+            ],
+            "supported_model_type": [
+                "single",
+                "multi"
+            ],
+            "sort": 140
+        }
+    ],
+    "helpers": {
+        "theme_record($row, $access, $map)": "把一行数据整理成模板可直接用的结构（cover_url/price/gallery/video 等均已算好）",
+        "theme_rows($model, $params)": "取列表数据（已规范化）",
+        "theme_row($model, $params)": "取单条数据",
+        "theme_map($model)": "字段别名 → 真实字段名",
+        "theme_field($row, $alias, $default, $map)": "按别名取值",
+        "theme_price($value, $prefix)": "价格格式化",
+        "theme_gallery_urls($value)": "多图字段 → URL 数组",
+        "theme_video_source($value)": "视频地址 → [type, src]",
+        "theme_media_url($value)": "统一资源地址",
+        "theme_data($key, $params)": "调用任意模块注册的数据提供者（如 bbs.latest）"
+    }
+}
